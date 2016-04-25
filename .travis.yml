@@ -16,6 +16,8 @@ install:
   - pip install coveralls # For coveralls.io specifically
   - pip install -r dev-requirements.txt
 script:
+  # Get some info on openssl version
+  - python -c "from cryptography.hazmat.bindings.openssl.binding import Binding; print(hex(Binding.lib.SSLeay()))"
   # Main tests, w/ coverage!
   - inv test --coverage
   # Ensure documentation & invoke pipeline run OK.
