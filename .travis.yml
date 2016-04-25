@@ -17,6 +17,7 @@ install:
   - pip install -r dev-requirements.txt
 script:
   # Get some info on openssl version
+  # Make travis go
   - python -c "from cryptography.hazmat.bindings.openssl.binding import Binding; print(hex(Binding.lib.SSLeay()))"
   # Main tests, w/ coverage!
   - inv test --coverage
